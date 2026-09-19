@@ -13,15 +13,15 @@
 class Trx64 < Formula
   desc "Commodore 64 runtime: WebSocket daemon with A/V and monitor, plus terminal cockpit"
   homepage "https://github.com/Jondalar/TRX64"
-  version "0.7.3"
+  version "0.8.0"
   license "GPL-3.0-or-later"
 
   # Only the two targets the CI publishes. Homebrew refuses the install with a clear
   # message on anything else (Intel Macs, arm64 Linux) rather than fetching the wrong file.
   on_macos do
     on_arm do
-      url "https://github.com/Jondalar/TRX64/releases/download/v0.7.3/trx64-0.7.3-macos-arm64.tar.gz"
-      sha256 "fb733e88332bece4d78848f3c560a40cf84e9a95eaa3b503cf9ae9f6930abc21"
+      url "https://github.com/Jondalar/TRX64/releases/download/v0.8.0/trx64-0.8.0-macos-arm64.tar.gz"
+      sha256 "d2262a5891aa58e8f6b5161f847d86f69b609a93d2a3f5566c04ade44bb5e59b"
     end
   end
 
@@ -29,8 +29,8 @@ class Trx64 < Formula
     on_intel do
       # Built in a rust:bookworm container; the binary's own symbols put the floor at
       # glibc 2.29, so Ubuntu 20.04, Debian 11 and newer.
-      url "https://github.com/Jondalar/TRX64/releases/download/v0.7.3/trx64-0.7.3-linux-x86_64.tar.gz"
-      sha256 "72683409161443c25b7f5379b3f9f098f48a96cfca7e13fba9142b69a5397f15"
+      url "https://github.com/Jondalar/TRX64/releases/download/v0.8.0/trx64-0.8.0-linux-x86_64.tar.gz"
+      sha256 "ea2454d3ed187515598b1588769b73b3e53d3dd197f3b5ce302ec98b692e9106"
     end
   end
 
