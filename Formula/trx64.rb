@@ -11,26 +11,35 @@
 # com.apple.quarantine. So these binaries start without notarization and without the
 # `xattr -d` dance a browser download would need.
 class Trx64 < Formula
-  desc "Commodore 64 runtime: WebSocket daemon with A/V and monitor, plus terminal cockpit"
+  desc "Commodore 64 runtime: WebSocket daemon with A/V and monitor, terminal cockpit"
   homepage "https://github.com/Jondalar/TRX64"
   version "0.10.0"
   license "GPL-3.0-or-later"
 
-  # Only the two targets the CI publishes. Homebrew refuses the install with a clear
-  # message on anything else (Intel Macs, arm64 Linux) rather than fetching the wrong file.
+  # Every macOS and Linux target the CI publishes: arm64 and x86_64 on both.
   on_macos do
     on_arm do
       url "https://github.com/Jondalar/TRX64/releases/download/v0.10.0/trx64-0.10.0-macos-arm64.tar.gz"
       sha256 "e27164b2726f1b63814cf383d9dd7a06cb1fa5f1143619185f7eaa99412e4bc7"
+    end
+    on_intel do
+      # Cross-built on Apple silicon with --target x86_64-apple-darwin.
+      url "https://github.com/Jondalar/TRX64/releases/download/v0.10.0/trx64-0.10.0-macos-x86_64.tar.gz"
+      sha256 "a1b5f84d063032796977a3c5206e13a00f253fe6a54a65b5d29fcdc6ecbee736"
     end
   end
 
   on_linux do
     on_intel do
       # Built in a rust:bookworm container; the binary's own symbols put the floor at
-      # glibc 2.29, so Ubuntu 20.04, Debian 11 and newer.
+      # glibc 2.34, so Ubuntu 22.04, Debian 12, RHEL 9 and newer.
       url "https://github.com/Jondalar/TRX64/releases/download/v0.10.0/trx64-0.10.0-linux-x86_64.tar.gz"
       sha256 "280c70ae7e832bd424e3577555964e8e243dc5d5358c891612939b0e7ceb5220"
+    end
+    on_arm do
+      # Same rust:bookworm container and glibc 2.34 floor as x86_64, on an arm64 runner.
+      url "https://github.com/Jondalar/TRX64/releases/download/v0.10.0/trx64-0.10.0-linux-arm64.tar.gz"
+      sha256 "e355dbafed65bc4ae19b6994b435d09e2146612fbb5e54b40088199604968bfc"
     end
   end
 

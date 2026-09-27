@@ -7,8 +7,8 @@ brew tap Jondalar/trx64
 brew install trx64
 ```
 
-macOS on Apple Silicon, and Linux on x86_64 (glibc 2.29+, so Ubuntu 20.04 / Debian 11
-and newer). Installs two binaries:
+macOS and Linux, each on Apple Silicon/arm64 and x86_64. Linux needs glibc 2.34+
+(Ubuntu 22.04, Debian 12, RHEL 9 and newer). Installs two binaries:
 
 | | |
 |---|---|
