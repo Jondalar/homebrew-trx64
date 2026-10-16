@@ -13,19 +13,19 @@
 class Trx64 < Formula
   desc "Commodore 64 runtime: WebSocket daemon with A/V and monitor, terminal cockpit"
   homepage "https://github.com/Jondalar/TRX64"
-  version "0.13.2"
+  version "0.13.3"
   license "GPL-3.0-or-later"
 
   # Every macOS and Linux target the CI publishes: arm64 and x86_64 on both.
   on_macos do
     on_arm do
-      url "https://github.com/Jondalar/TRX64/releases/download/v0.13.2/trx64-0.13.2-macos-arm64.tar.gz"
-      sha256 "578ddc6addcd478876e50e43fd0debd22beb63fd1b3012d2f94b31d37f9795bd"
+      url "https://github.com/Jondalar/TRX64/releases/download/v0.13.3/trx64-0.13.3-macos-arm64.tar.gz"
+      sha256 "f7168e2d9e00f5c3916e4d7032be312dc957a341a128af5f4a2d20fc5fb56d79"
     end
     on_intel do
       # Cross-built on Apple silicon with --target x86_64-apple-darwin.
-      url "https://github.com/Jondalar/TRX64/releases/download/v0.13.2/trx64-0.13.2-macos-x86_64.tar.gz"
-      sha256 "15988df5fbc556477f2df773518939bc5ce642827d3f6ea42e5f1990b1809b70"
+      url "https://github.com/Jondalar/TRX64/releases/download/v0.13.3/trx64-0.13.3-macos-x86_64.tar.gz"
+      sha256 "c8c285a3f6275c0892287d9115fef426eac43e204a1ad49993b44043417852db"
     end
   end
 
@@ -33,13 +33,13 @@ class Trx64 < Formula
     on_intel do
       # Built in a rust:bookworm container; the binary's own symbols put the floor at
       # glibc 2.34, so Ubuntu 22.04, Debian 12, RHEL 9 and newer.
-      url "https://github.com/Jondalar/TRX64/releases/download/v0.13.2/trx64-0.13.2-linux-x86_64.tar.gz"
-      sha256 "36f8c320bdc4accde40961c41e69626275f9e95ba7211ec02088440b905b9870"
+      url "https://github.com/Jondalar/TRX64/releases/download/v0.13.3/trx64-0.13.3-linux-x86_64.tar.gz"
+      sha256 "fd79c5098e31fdfad3896bb9ce484e69361c85d6e521a9aa312b80a6988443da"
     end
     on_arm do
       # Same rust:bookworm container and glibc 2.34 floor as x86_64, on an arm64 runner.
-      url "https://github.com/Jondalar/TRX64/releases/download/v0.13.2/trx64-0.13.2-linux-arm64.tar.gz"
-      sha256 "0a7a050dc61cd9e943509fc869d3a9141d931f9ef5f194d4aac2d020b42e6e03"
+      url "https://github.com/Jondalar/TRX64/releases/download/v0.13.3/trx64-0.13.3-linux-arm64.tar.gz"
+      sha256 "1d6eae087e54a305b2916017abd9de62296b2b93a691053cd3c042447d2700d7"
     end
   end
 
